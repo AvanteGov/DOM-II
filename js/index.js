@@ -8,6 +8,10 @@ hoverNav.forEach((element) => {
         element.style.color = "green"
         e.stopPropagation();
     })
+    element.addEventListener('mouseleave', (e) => {
+        element.style.color = "black";
+        e.stopPropagation();
+    })
 })
 
 
@@ -38,5 +42,19 @@ buttons.forEach((element) => {
         e.stopPropagation();
     })
 })
+
+// animates intro header content
+let introContent = document.querySelector('.intro');
+
+introContent.addEventListener('mouseenter', () => {
+    gsap.from(this, {duration: 2, rotate: 360});
+})
+
+
+
+
+
+
+
 
 
