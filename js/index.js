@@ -19,10 +19,13 @@ images.forEach((element) => {
         element.style.filter = "brightness(50%)";
         e.stopPropagation();
     })
+    element.addEventListener('mouseleave', (e) => {
+        element.style.filter = "brightness(100%)"
+    })
 })
 
 
-// buttons read "let's go" upon mouse over
+// buttons read "let's go" upon mouse over, changes back upon leave.
 let buttons = document.querySelectorAll('.btn');
 
 buttons.forEach((element) => {
@@ -30,5 +33,10 @@ buttons.forEach((element) => {
         element.textContent = "Let's Go!";
         e.stopPropagation();
     }})
+    element.addEventListener('mouseleave', (e) =>  {
+        element.textContent = 'Sign me up!';
+        e.stopPropagation();
+    })
 })
+
 
