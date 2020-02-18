@@ -23,6 +23,7 @@ hoverNav.forEach((element) =>{
     })
 })
 
+
 // images darken upon mouseover
 let images = document.querySelectorAll('img');
 
