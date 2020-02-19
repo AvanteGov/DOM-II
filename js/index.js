@@ -1,4 +1,8 @@
 // Your code goes here
+// import { gsap } from "gsap";
+// import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
+// import { TextPlugin } from "gsap/TextPlugin.js";
+// import { ScrollToPlugin } from "gsap/ScrollToPlugin.js";
 // gsap.registerPlugin(MotionPathPlugin, ScrollToPlugin, TextPlugin);
 
 
@@ -64,31 +68,74 @@ buttons.forEach((element) => {
 })
 
 // activates alert when bottom button is mousedown
-// buttons.forEach((element) => {
-//     element.addEventListener('mousedown' (e) => {
-//         window.alert("Page coming soon!");
-//     })
-// })
-// need to make the event a keydown event and use wondow.alert to activate
+buttons.forEach((element) => {
+    element.addEventListener('click', (e) => {
+        window.alert("Page coming soon!");
+    })
+})
+
 
 
 
 // inverts color of test when selected 
-let paragraphs = document.querySelectorAll('p');
+let paragraphs = document.querySelectorAll('.test');
 
 paragraphs.forEach((element) => {
-    element.addEventListener('select', (e) => {
-        element.style.color = "white";
+    element.addEventListener('contextmenu', (e) => {
+        element.style.color = "blue";
         e.stopPropagation();
     })
 })
 
 
-// animates intro header content
-let introContent = document.querySelector('.intro');
 
-introContent.addEventListener('mouseenter', () => {
-    gsap.from(this, {duration: 2, rotate: 360});
+// animates intro header content
+let introContent = document.querySelector('.intro-img');
+
+introContent.addEventListener('mousedown', (e) => {
+    gsap.from('.intro-img', {duration: 2, rotate: 360});
+})
+
+// alert when image is dragged 
+images.forEach((element) => {
+    element.addEventListener("dragend", (e) => {
+        window.alert("stop dragging me down");
+    })
+})
+
+
+// when text is inputed display a new paragraph
+let inputFields = document.querySelector('.inputFields')
+let input = document.querySelectorAll('.personalInfo');
+let newField = document.createElement('input');
+newField.classList.add('personalInfo');
+
+input.forEach((element) => {
+    element.addEventListener('input', (e) =>{
+        inputFields.appendChild(newField)
+        e.stopPropagation();
+    })
+})
+
+// resizing sets off "do you need glasses?" alert 
+document.addEventListener('resize', (e) =>{
+    alert('do you need glasses?')
+})
+
+// can you add events directly to the doc? 
+
+// keydown hides the entire container
+let entireThing = document.querySelector('body');
+
+entireThing.addEventListener('keydown', (e) => {
+    entireThing.classList.add('hide');
+})
+
+// copying <p> text give copyright alert 
+paragraphs.forEach((element) => {
+    element.addEventListener('copy', (e) =>{
+        alert("do you know anything about copyright?")
+    })
 })
 
 
